@@ -1,6 +1,9 @@
 server:
   port: 8080
+#spring:
 spring:
+  application:
+    name: config-server
   profiles:
     active: native
   cloud:
@@ -8,3 +11,11 @@ spring:
       server:
         native:
           searchLocations: classpath:/config/userservice,classpath:/config/eureka
+eureka:
+  client:
+    serviceUrl:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://192.168.1.8:8001/eureka/,http://192.168.1.8:8002/eureka/
+  instance:
+    preferIpAddress: true

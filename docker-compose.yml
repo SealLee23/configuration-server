@@ -1,0 +1,16 @@
+#Eureka Cluster
+version: '2'
+services:
+  config-server:
+    image: config-server
+    container_name: config-server
+    hostname: config-server
+    networks:
+      - eureka-net
+    ports:
+      - 18080:8080
+    environment:
+      - spring.profiles.active=native
+networks:
+  eureka-net:
+    driver: bridge
